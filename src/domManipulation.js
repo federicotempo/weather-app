@@ -7,4 +7,4 @@ function getCityFromUser() {
   return city;
 }
 
-
+export { getCityFromUser };
