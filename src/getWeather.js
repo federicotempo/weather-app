@@ -16,7 +16,8 @@ const getTemperature = (data) => {
 };
 
 const convertToCelsius = (fahrenheit) => {
-  return ((fahrenheit - 32) * 5) / 9;
+  const celsius = ((fahrenheit - 32) * 5) / 9;
+  return celsius;
 };
 
 export { getWeather, getTemperature, convertToCelsius };
