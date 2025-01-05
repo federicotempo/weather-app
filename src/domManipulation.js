@@ -3,4 +3,11 @@ function getCityFromUser() {
   return city.split(" ").join("");
 }
 
-export { getCityFromUser };
+const focusInput = () => {
+  window.addEventListener("load", function () {
+    const inputField = document.querySelector("#city-input")
+    inputField.focus();
+  });
+};
+
+export { getCityFromUser, focusInput };

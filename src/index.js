@@ -1,10 +1,15 @@
 import "./styles.css";
 import { getWeather, getTemperature, convertToCelsius } from "./getWeather";
-import { getCityFromUser } from "./domManipulation";
+import { getCityFromUser, focusInput } from "./domManipulation";
 
 const handleSearchButton = () => {
   const searchButton = document.querySelector(".search-button");
   searchButton.addEventListener("click", search);
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      search();
+    }
+  });
 };
 
 const search = async () => {
@@ -12,7 +17,12 @@ const search = async () => {
   console.log(city);
 };
 
-handleSearchButton();
+function initialize() {
+  handleSearchButton();
+  focusInput();
+}
+
+initialize();
 
 // let city = getCity();
 
