@@ -1,4 +1,4 @@
-function getCity() {
+function getCityFromUser() {
   const city = document
     .querySelector("#city-input")
     .value.toLowerCase()
@@ -6,3 +6,5 @@ function getCity() {
     .join("");
   return city;
 }
+
+

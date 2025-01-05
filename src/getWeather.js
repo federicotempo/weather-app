@@ -4,7 +4,7 @@ async function getWeather(city) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=2VZAENS7BKUDBFCYA3CCTQXQC`
     );
     let data = await response.json();
-    console.log(data)
+    console.log(data);
     return data;
   } catch (error) {
     console.log("Error: ", error);
@@ -19,22 +19,22 @@ const getTemperature = (data) => {
 const getLocation = (data) => {
   const location = data.resolvedAddress;
   return location;
-}
+};
 
 const getFeelsLike = (data) => {
   const feelsLike = data.currentConditions.feelslike;
   return feelsLike;
-}
+};
 
 const getWindSpeed = (data) => {
   const windSpeed = data.currentConditions.windspeed;
   return windSpeed;
-}
+};
 
 const getHumidity = (data) => {
   const humidity = data.currentConditions.humidity;
   return humidity;
-}
+};
 
 const convertToCelsius = (fahrenheit) => {
   const celsius = (((fahrenheit - 32) * 5) / 9).toFixed(1);
