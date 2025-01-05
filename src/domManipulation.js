@@ -1,10 +1,6 @@
 function getCityFromUser() {
-  const city = document
-    .querySelector("#city-input")
-    .value.toLowerCase()
-    .split("")
-    .join("");
-  return city;
+  const city = document.querySelector("#city-input").value.toLowerCase();
+  return city.split(" ").join("");
 }
 
 export { getCityFromUser };
