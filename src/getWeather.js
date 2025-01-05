@@ -1,12 +1,3 @@
-
-function getCity() {
-  const city = document.querySelector("#city-input").value
-  .toLowerCase()
-  .split("")
-  .join("");
-  return city;
-}
-
 async function getWeather(city) {
   try {
     let response = await fetch(
@@ -50,4 +41,4 @@ const convertToCelsius = (fahrenheit) => {
   return celsius;
 };
 
-export { getWeather, getTemperature, convertToCelsius, getCity };
+export { getWeather, getTemperature, convertToCelsius };
