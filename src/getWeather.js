@@ -4,7 +4,6 @@ async function getWeather(city) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=2VZAENS7BKUDBFCYA3CCTQXQC`
     );
     let data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log("Error: ", error);
@@ -41,4 +40,12 @@ const convertToCelsius = (fahrenheit) => {
   return celsius;
 };
 
-export { getWeather, getTemperature, convertToCelsius };
+export {
+  getWeather,
+  getTemperature,
+  convertToCelsius,
+  getLocation,
+  getFeelsLike,
+  getHumidity,
+  getWindSpeed,
+};

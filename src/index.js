@@ -1,6 +1,14 @@
 import "./styles.css";
-import { getWeather, getTemperature, convertToCelsius } from "./getWeather";
-import { getCityFromUser, focusInput } from "./domManipulation";
+import {
+  getWeather,
+  getTemperature,
+  convertToCelsius,
+  getLocation,
+  getFeelsLike,
+  getHumidity,
+  getWindSpeed,
+} from "./getWeather";
+import { getCityFromUser, focusInput, renderData } from "./domManipulation";
 
 const handleSearchButton = () => {
   const searchButton = document.querySelector(".search-button");
@@ -14,7 +22,15 @@ const handleSearchButton = () => {
 
 const search = async () => {
   const city = getCityFromUser();
-  console.log(city);
+  const data = await getWeather(city);
+  const temperature = getTemperature(data);
+  const location = getLocation(data);
+  const windSpeed = getWindSpeed(data);
+  const humidity = getHumidity(data);
+  const feelsLike = getFeelsLike(data);
+
+  const parameters = [temperature, location, windSpeed, humidity, feelsLike];
+  renderData(parameters);
 };
 
 function initialize() {
