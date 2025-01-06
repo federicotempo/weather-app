@@ -12,6 +12,7 @@ import {
   focusInput,
   renderData,
   handleSwitchButton,
+  handleError,
 } from "./domManipulation";
 
 const handleSearchButton = () => {
@@ -26,16 +27,28 @@ const handleSearchButton = () => {
 
 const search = async () => {
   const city = getCityFromUser();
+
   if (city !== "") {
     const data = await getWeather(city);
-    const temperature = getTemperature(data);
-    const location = getLocation(data);
-    const windSpeed = getWindSpeed(data);
-    const humidity = getHumidity(data);
-    const feelsLike = getFeelsLike(data);
 
-    const parameters = [temperature, location, windSpeed, humidity, feelsLike];
-    renderData(parameters);
+    if (data.error) {
+      handleError();
+    } else {
+      const temperature = getTemperature(data);
+      const location = getLocation(data);
+      const windSpeed = getWindSpeed(data);
+      const humidity = getHumidity(data);
+      const feelsLike = getFeelsLike(data);
+
+      const parameters = [
+        temperature,
+        location,
+        windSpeed,
+        humidity,
+        feelsLike,
+      ];
+      renderData(parameters);
+    }
   }
 };
 

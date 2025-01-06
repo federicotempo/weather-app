@@ -3,10 +3,15 @@ async function getWeather(city) {
     let response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=2VZAENS7BKUDBFCYA3CCTQXQC`
     );
+
+    if (!response.ok) {
+      throw new Error(`Ciudad inválida. Código: ${response.status}`);
+    }
+
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log("Error: ", error);
+    return { error: "Por favor, ingresa una ciudad válida" };
   }
 }
 
