@@ -6,11 +6,12 @@ function getCityFromUser() {
 }
 
 const renderData = (parameters) => {
-  const [temperature, location, windSpeed, humidity, feelsLike] = parameters;
+  const [temperature, location, windSpeed, humidity, feelsLike, conditions] = parameters;
 
   document.querySelector("#error-message").classList.remove("show");
   document.querySelector(".toggle-unit").textContent = "Switch to °C";
 
+  document.querySelector("#condition").textContent = conditions;
   document.querySelector("#temp").textContent = temperature;
   document.querySelector("#temp-units").textContent = "°F";
   document.querySelector("#location").textContent = location;

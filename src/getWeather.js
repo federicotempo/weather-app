@@ -9,6 +9,7 @@ async function getWeather(city) {
     }
 
     let data = await response.json();
+    console.log(data)
     return data;
   } catch (error) {
     return { error: "Por favor, ingresa una ciudad válida" };
@@ -40,6 +41,11 @@ const getHumidity = (data) => {
   return humidity;
 };
 
+const getConditions = (data) => {
+  const conditions = data.currentConditions.conditions;
+  return conditions;
+}
+
 const convertToCelsius = (fahrenheit) => {
   const celsius = (((fahrenheit - 32) * 5) / 9).toFixed(1);
   return celsius;
@@ -58,5 +64,6 @@ export {
   getFeelsLike,
   getHumidity,
   getWindSpeed,
+  getConditions,
   convertToFahrenheit,
 };

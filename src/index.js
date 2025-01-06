@@ -6,6 +6,7 @@ import {
   getFeelsLike,
   getHumidity,
   getWindSpeed,
+  getConditions,
 } from "./getWeather";
 import {
   getCityFromUser,
@@ -39,6 +40,7 @@ const search = async () => {
       const windSpeed = getWindSpeed(data);
       const humidity = getHumidity(data);
       const feelsLike = getFeelsLike(data);
+      const conditions = getConditions(data);
 
       const parameters = [
         temperature,
@@ -46,6 +48,7 @@ const search = async () => {
         windSpeed,
         humidity,
         feelsLike,
+        conditions,
       ];
       renderData(parameters);
     }
