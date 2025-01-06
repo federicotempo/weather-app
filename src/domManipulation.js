@@ -7,8 +7,8 @@ function getCityFromUser() {
 
 const renderData = (parameters) => {
   const [temperature, location, windSpeed, humidity, feelsLike] = parameters;
-  
-  document.querySelector('#error-message').classList.remove('show');
+
+  document.querySelector("#error-message").classList.remove("show");
   document.querySelector(".toggle-unit").textContent = "Switch to °C";
 
   document.querySelector("#temp").textContent = temperature;
@@ -30,6 +30,10 @@ const changeUnits = () => {
   const feelsLike = document.querySelector("#feels-like").textContent;
   const currentUnit = document.querySelector("#temp-units").textContent;
   let newUnit = "";
+
+  if (temperature === "--") {
+    return;
+  }
 
   if (currentUnit === "°F") {
     const celsiusTemp = convertToCelsius(temperature);
@@ -55,8 +59,8 @@ const changeUnits = () => {
 };
 
 const handleError = () => {
-  document.querySelector('#error-message').classList.add('show');
-}
+  document.querySelector("#error-message").classList.add("show");
+};
 
 const focusInput = () => {
   window.addEventListener("load", function () {
@@ -65,4 +69,10 @@ const focusInput = () => {
   });
 };
 
-export { getCityFromUser, focusInput, renderData, handleSwitchButton, handleError };
+export {
+  getCityFromUser,
+  focusInput,
+  renderData,
+  handleSwitchButton,
+  handleError,
+};
