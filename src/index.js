@@ -26,15 +26,17 @@ const handleSearchButton = () => {
 
 const search = async () => {
   const city = getCityFromUser();
-  const data = await getWeather(city);
-  const temperature = getTemperature(data);
-  const location = getLocation(data);
-  const windSpeed = getWindSpeed(data);
-  const humidity = getHumidity(data);
-  const feelsLike = getFeelsLike(data);
+  if (city !== "") {
+    const data = await getWeather(city);
+    const temperature = getTemperature(data);
+    const location = getLocation(data);
+    const windSpeed = getWindSpeed(data);
+    const humidity = getHumidity(data);
+    const feelsLike = getFeelsLike(data);
 
-  const parameters = [temperature, location, windSpeed, humidity, feelsLike];
-  renderData(parameters);
+    const parameters = [temperature, location, windSpeed, humidity, feelsLike];
+    renderData(parameters);
+  }
 };
 
 function initialize() {
