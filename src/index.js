@@ -7,7 +7,12 @@ import {
   getHumidity,
   getWindSpeed,
 } from "./getWeather";
-import { getCityFromUser, focusInput, renderData, handleSwitchButton } from "./domManipulation";
+import {
+  getCityFromUser,
+  focusInput,
+  renderData,
+  handleSwitchButton,
+} from "./domManipulation";
 
 const handleSearchButton = () => {
   const searchButton = document.querySelector(".search-button");
@@ -39,4 +44,3 @@ function initialize() {
 }
 
 initialize();
-

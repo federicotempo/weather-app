@@ -40,6 +40,11 @@ const convertToCelsius = (fahrenheit) => {
   return celsius;
 };
 
+const convertToFahrenheit = (celsius) => {
+  const fahrenheit = ((celsius * 9) / 5 + 32).toFixed(1);
+  return fahrenheit;
+};
+
 export {
   getWeather,
   getTemperature,
@@ -48,4 +53,5 @@ export {
   getFeelsLike,
   getHumidity,
   getWindSpeed,
+  convertToFahrenheit,
 };
