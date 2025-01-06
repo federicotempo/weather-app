@@ -9,7 +9,6 @@ async function getWeather(city) {
     }
 
     let data = await response.json();
-    console.log(data)
     return data;
   } catch (error) {
     return { error: "Por favor, ingresa una ciudad válida" };
